@@ -50,7 +50,7 @@ class SearchingAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_loadinng, parent, false)
+                .inflate(R.layout.item_result_videos, parent, false)
         return ResultVideoViewHolder(itemView)
     }
 
