@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/iv_thumbnail_video_result"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/tv_video_title_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_thumbnail_video_result"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="30dp"
+        android:paddingRight="15dp"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tv_channel_name_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_video_title_result"
+        android:layout_marginLeft="30dp"
+        android:paddingBottom="15dp"
+        android:text="Son tung M-TP Official"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_below="@+id/tv_video_title_result"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/tv_channel_name_result"
+        android:paddingBottom="15dp"
+        android:text="."
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/tv_publish_time_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_video_title_result"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/tv_dot"
+        android:paddingBottom="15dp"
+        android:text="2020-07-05T13:00:12Z"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
