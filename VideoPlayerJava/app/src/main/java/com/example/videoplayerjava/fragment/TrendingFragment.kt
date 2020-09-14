@@ -61,20 +61,32 @@ class TrendingFragment : SupportFragment(), ITrending {
         }
         trendingControl = TrendingController(_mActivity, this)
         trendingControl!!.loadData(URL)
+
+        trendingControl!!.loadMoreData()
         refresh_layout.setOnRefreshListener {
             trendingVideos.clear()
             trendingControl!!.loadData(URL)
-            refresh_layout.isRefreshing = false
             trendingAdapter?.notifyDataSetChanged()
             Toast.makeText(refresh_layout.getContext(), "Refreshing", 0).show()
         }
+
     }
 
 
     override fun onLoadedData(resultVideos: MutableList<YoutubeVideo>) {
         Log.e("Videos", "Loaded")
         trendingVideos.addAll(resultVideos)
+        refresh_layout.isRefreshing = false
         trendingAdapter!!.hideFooter()
         trendingAdapter!!.notifyDataSetChanged()
     }
+
+    override fun onLoadMore(resultVideos: MutableList<YoutubeVideo>) {
+//        trendingAdapter!!.setLoaded()
+        trendingVideos.addAll(resultVideos)
+        trendingAdapter!!.hideFooter()
+        trendingAdapter!!.notifyDataSetChanged()
+
+    }
+
 }

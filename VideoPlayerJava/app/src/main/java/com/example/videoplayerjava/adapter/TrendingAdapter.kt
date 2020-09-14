@@ -11,9 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.videoplayerjava.R
+import com.example.videoplayerjava.controller.ITrending
 import com.example.videoplayerjava.model.YoutubeVideo
 import com.example.videoplayerjava.utils.DurationUtils
 import com.example.videoplayerjava.utils.TimeUtils
+import kotlinx.android.synthetic.main.fragment_trending.view.*
+import kotlinx.android.synthetic.main.item_loadinng.view.*
 
 class TrendingAdapter(
         private val youtubeVideos: MutableList<YoutubeVideo>,
@@ -21,6 +24,8 @@ class TrendingAdapter(
         recyclerView: RecyclerView) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val VIEW_TYPE_ITEM = 0
     private val VIEW_TYPE_LOADING = 1
+    private var loadMore: ITrending? = null
+    private var isLoading: Boolean = true
 
     //    boolean isLoading;
     //    Integer visibleThreshold = 0;
@@ -34,6 +39,10 @@ class TrendingAdapter(
                 super.onScrolled(recyclerView, dx, dy)
                 totalItemCount = linearLayoutManager!!.itemCount
                 lastVisibleItem = linearLayoutManager.findLastVisibleItemPosition()
+//                if(isLoading != null) {
+//                    loadMore?.onLoadMore();
+//                    isLoading = true
+//                }
             }
         })
     }
@@ -60,7 +69,7 @@ class TrendingAdapter(
         var progressBar: ProgressBar
 
         init {
-            progressBar = itemView.findViewById(R.id.progress_bar)
+            progressBar = itemView.progress_bar_loading
         }
     }
 
@@ -120,5 +129,12 @@ class TrendingAdapter(
         }
     }
 
+    fun setLoaded(loadMore: ITrending) {
+        isLoading = false
+    }
+
+    fun setLoadMore(loadMore: ITrending) {
+        this.loadMore = loadMore
+    }
 
 }
